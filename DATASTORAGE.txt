@@ -1,0 +1,3 @@
+Database for queuing=medilab
+Table Name To Store Appointments=Appointments
+Table For patient admission=patient;

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Management</title>
+    <link rel="stylesheet" href="Medicinemanagement.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <!-- <div class="sidebar">
+        <div class="logo">MediLab Hospital</div>
+        <ul class="menu">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Staff</a></li>
+            <li><a href="#">Lab</a></li>
+            <li><a href="#">Ward</a></li>
+            <li><a href="#">Treatment</a></li>
+            <li><a href="#">Pharmacy</a></li>
+            <li><a href="#">Patient</a></li>
+        </ul>
+    </div> -->
+
+    <!-- Main Content -->
+    <header>
+        <div class="logo">
+            <h1>MediLab</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Appointment.html">Queue</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Services 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="MedicineManagement.html">Medcine Management</a>
+                        <a href="Patient Admission.html">Patient Admission</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div> 
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="sign-in"><a href="signIn.html">Sign In</a></button>
+            <button class="topregister"><a href="Register.html">Register</a></button>
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="medicine-management">
+            <!-- <h2>Medicine Management</h2> -->
+            <div class="form-container">
+                <button class="generate-report">Generate Report</button>
+                <div class="form-group">
+                    <input type="text" placeholder="Medicine name">
+                    <input type="text" placeholder="Medicine ID">
+                    <button class="search">Search</button>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Supplier Name">
+                    <input type="text" placeholder="Manufacture Date" onfocus="(this.type='date')" onblur="(this.type='text')" />
+
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Expiry Date" onfocus="(this.type='date')" onblur="(this.type='text')" />
+                    <input type="number" placeholder="QTY">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Unit Price">
+                    <!-- <div class="currency-label">RS:</div> -->
+                </div>
+                <div class="form-buttons">
+                    <button class="btn add">Add</button>
+                    <button class="btn update">Update</button>
+                    <button class="btn delete">Delete</button>
+                </div>
+            </div>
+
+            <div class="out-of-stock">
+                <h3>Out of Stock</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Medicine Name</th>
+                            <th>Expire Date</th>
+                            <th>Manufacture Date</th>
+                            <th>Supplier Name</th>
+                            <th>Unit Price</th>
+                            <th>QTY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Vitamin C</td>
+                            <td>2025-04-13</td>
+                            <td>2021-12-13</td>
+                            <td>Kane</td>
+                            <td>1500.00</td>
+                            <td>150</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Paracetamol</td>
+                            <td>2025-05-13</td>
+                            <td>2022-04-04</td>
+                            <td>Kane</td>
+                            <td>4500.00</td>
+                            <td>225</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Avatar</td>
+                            <td>2026-01-16</td>
+                            <td>2020-06-08</td>
+                            <td>Kane</td>
+                            <td>5000.00</td>
+                            <td>65</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Amoxicillin</td>
+                            <td>2024-12-13</td>
+                            <td>2021-01-13</td>
+                            <td>Kane</td>
+                            <td>1200.00</td>
+                            <td>275</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="separation"></div>
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <h3>MediLab</h3>
+            </div>
+            <div class="quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Queue</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hours">
+                <h4>Hours</h4>
+                <ul>
+                    <li>Monday: 9:00 - 18:00</li>
+                    <li>Tuesday: 9:00 - 18:00</li>
+                    <li>Wednesday: 9:00 - 18:00</li>
+                    <li>Thursday: 9:00 - 18:00</li>
+                    <li>Friday: 9:00 - 18:00</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Phone: 000-000-000</li>
+                    <li>Email: info@email.com</li>
+                    <li>Address: Kalutara South</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <br>
+</body>
+</html>

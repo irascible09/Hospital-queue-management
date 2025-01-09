@@ -1,0 +1,267 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+/* The menu container
+.menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+/* Menu links */
+/* .menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+} */
+
+/* Close button */
+/* .menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+} */
+
+/* Hover effect for menu links */
+/* .menu a:hover {
+    color: #f1f1f1;
+}
+
+/* Open menu button */
+/* .openbtn {
+    font-size: 30px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+} */
+
+/* .openbtn:hover {
+    background-color: #444;
+}  */ 
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+    font-size: 16px;
+    font-weight: bold;  
+    border: none;
+    outline: none;
+    color: rgb(0, 0, 0);
+    background-color: inherit;
+    font-family: inherit;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+button.sign-in a, button.topregister a {
+    color: inherit; /* Inherit the color of the button */
+    text-decoration: none; /* Remove underline */
+}button.sign-in a:visited, button.topregister a:visited {
+    color: inherit; /* Inherit the color of the button */
+    text-decoration: none; /* Remove underline */
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo h1 {
+    margin: 0;
+    color: #5e60ce;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.auth-buttons button {
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    /* color: white; */
+}
+
+.sign-in {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #ddd;
+    color: #000;
+}
+
+.topregister {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #5e60ce;
+    color: #fff;
+}
+.hero {
+    display: flex;
+    padding: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+}
+.hero-text p {
+    font-size: 22px;
+}
+.hero-image img {
+    width: 500px;
+    height: auto;
+}
+
+.biography {
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+
+.biography h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.biography p {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+
+footer {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-content h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-content ul li {
+    margin-bottom: 5px;
+}
+.quick-links ul, .hours ul, .contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+.quick-links a {
+    text-decoration: none;
+    color: #000;
+}
+.hero img{
+    width: 5;
+}
+.biography-image{
+    width: 500px;
+    /* height: auto; */
+    float: left;
+}
+.biography-image img{
+    width: 371px;
+}
+.hero-image img:first-child{
+    width: 600px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.hero-image :nth-child(2) {
+    position: relative;
+    z-index: 10;
+    width: 555px;
+}
+.separation{
+    height: 8px;
+    background-color: rgb(48, 48, 48);
+}

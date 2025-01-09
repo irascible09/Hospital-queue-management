@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediLab Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Existing CSS */
+        #popup-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            max-height: 400px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+            z-index: 1000;
+            display: none; /* Hidden by default */
+        }
+
+        #popup-header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+
+        #popup-header button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #popup-content {
+            padding: 10px;
+        }
+
+        .hospital {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .hospital h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .hospital p {
+            margin: 5px 0;
+        }
+
+        .map {
+            height: 150px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/962a9cc5-82cb-4cb5-8c09-fcb579d8db59/webchat/v2.1/config.js"></script>
+    <header>
+        <div class="logo">
+            <h1>MediLab</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Appointment.html">Queue</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Services 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="MedicineManagement.html">Medicine Management</a>
+                        <a href="Patient Admission.html">Patient Admission</a>
+                        <a href="#">Diagnostic Services</a>
+                    </div>
+                </div> 
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="sign-in"><a href="signIn.html">Sign In</a></button>
+            <button class="topregister"><a href="Register.html">Register</a></button>
+        </div>
+    </header>
+    <br>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>We assist people in securing online appointments for essential services</h1>
+                <p>Our platform streamlines the process of getting appointments for beds and medicine, ensuring easy access to healthcare services. We provide innovative solutions that cater to user needs effectively, helping individuals queue for available resources in real-time. Our mission is to enhance the user experience, improve accessibility, and ensure that healthcare services reach those who need them most.</p>
+            </div>
+            <div class="hero-image">
+                <img src="image3.svg" alt="">
+                <img src="image1.svg" alt="Hero Image">
+            </div>
+        </section>
+
+        <section class="biography">
+            <div class="biography-image">
+                <img src="image2.svg" alt="Biography Image">
+            </div>
+            <h2>Who We Are</h2>
+            <p>We are a dedicated team focused on enhancing healthcare accessibility through technology. Our platform simplifies the process of securing appointments for beds and medicine, offering real-time availability updates to ensure timely care for all.</p>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="separation"></div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <h3>MediLab</h3>
+            </div>
+            <div class="quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Queue</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hours">
+                <h4>Hours</h4>
+                <ul>
+                    <li>Monday: 9:00 - 18:00</li>
+                    <li>Tuesday: 9:00 - 18:00</li>
+                    <li>Wednesday: 9:00 - 18:00</li>
+                    <li>Thursday: 9:00 - 18:00</li>
+                    <li>Friday: 9:00 - 18:00</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Phone: 000-000-000</li>
+                    <li>Email: info@email.com</li>
+                    <li>Address: Kalutara South</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <br>
+
+    <!-- Nearest Hospitals Pop-up -->
+    <div id="popup-container">
+        <div id="popup-header">
+            Nearest Hospitals
+            <button id="popup-close">&times;</button>
+        </div>
+        <div id="popup-content"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            fetchNearbyHospitals(lat, lon);
+        }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Radius of the Earth in km
+            const dLat = (lat2 - lat1) * (Math.PI / 180);
+            const dLon = (lon2 - lon1) * (Math.PI / 180);
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                      Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+                      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c; // Distance in km
+        }
+
+        function fetchNearbyHospitals(lat, lon) {
+            const url = `https://overpass-api.de/api/interpreter?data=[out:json];node["amenity"="hospital"](around:5000,${lat},${lon});out;`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const hospitals = data.elements;
+                    // Add distance property and sort hospitals
+                    hospitals.forEach(hospital => {
+                        hospital.distance = calculateDistance(lat, lon, hospital.lat, hospital.lon);
+                    });
+                    hospitals.sort((a, b) => a.distance - b.distance);
+                    displayHospitals(hospitals);
+                })
+                .catch(error => console.error('Error fetching hospitals:', error));
+        }
+
+        function displayHospitals(hospitals) {
+            const container = document.getElementById('popup-content');
+            container.innerHTML = '<h2>Top 10 Nearest Hospitals</h2>';
+            
+            // Limit to top 10 hospitals
+            hospitals.slice(0, 10).forEach((hospital, index) => {
+                const hospitalElement = document.createElement('div');
+                hospitalElement.className = 'hospital';
+                hospitalElement.innerHTML = `
+                    <h3>${hospital.tags.name || 'Unnamed Hospital'}</h3>
+                    <p>Distance: ${hospital.distance.toFixed(2)} km</p>
+                    <div id="map${index}" class="map"></div>
+                `;
+                container.appendChild(hospitalElement);
+
+                // Initialize the map for each hospital
+                const map = L.map(`map${index}`).setView([hospital.lat, hospital.lon], 13);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 18,
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                // Add a clickable marker that opens Google Maps
+                L.marker([hospital.lat, hospital.lon]).addTo(map)
+                    .bindPopup(hospital.tags.name || 'Unnamed Hospital')
+                    .on('click', () => {
+                        window.open(`https://www.google.com/maps?q=${hospital.lat},${hospital.lon}`, '_blank');
+                    });
+            });
+        }
+
+        function togglePopup() {
+            const popup = document.getElementById('popup-container');
+            const button = document.getElementById('toggle-button');
+            if (popup.style.display === 'block') {
+                popup.style.display = 'none';
+                button.style.display = 'block';
+            } else {
+                popup.style.display = 'block';
+                button.style.display = 'none';
+                getLocation();
+            }
+        }
+
+        document.getElementById('popup-close').addEventListener('click', function() {
+            document.getElementById('popup-container').style.display = 'none';
+            document.getElementById('toggle-button').style.display = 'block';
+        });
+
+        // Add a button to toggle the popup
+        const toggleButton = document.createElement('button');
+        toggleButton.id = 'toggle-button';
+        toggleButton.textContent = 'Show Nearest Hospitals';
+        toggleButton.style.position = 'fixed';
+        toggleButton.style.bottom = '20px';
+        toggleButton.style.left = '20px';
+        toggleButton.style.padding = '10px 20px';
+        toggleButton.style.border = 'none';
+        toggleButton.style.backgroundColor = '#007BFF';
+        toggleButton.style.color = 'white';
+        toggleButton.style.borderRadius = '5px';
+        toggleButton.style.cursor = 'pointer';
+        toggleButton.addEventListener('click', togglePopup);
+        document.body.appendChild(toggleButton);
+    </script>
+</body>
+</html>

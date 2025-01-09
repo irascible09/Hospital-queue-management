@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="Patient Admission.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>MediLab</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Appointment.html">Queue</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Services 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="MedicineManagement.html">Medcine Management</a>
+                        <a href="Patient Admission.html">Patient Admission</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div> 
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="sign-in"><a href="signIn.html">Sign In</a></button>
+            <button class="topregister"><a href="Register.html">Register</a></button>
+        </div>
+    </header>
+    <div class="container">
+        <section class="bed-availability">
+            <h2>Bed Availability</h2>
+            <div class="bed-cards">
+                <div class="bed-card">
+                    <h3>ICU Beds</h3>
+                    <p><span>12</span> Available</p>
+                </div>
+                <div class="bed-card">
+                    <h3>General Wards</h3>
+                    <p><span>45</span> Available</p>
+                </div>
+                <div class="bed-card">
+                    <h3>Emergency Beds</h3>
+                    <p><span>8</span> Available</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="patient-admission">
+            <h2>Patient Admission</h2>
+            <form action="http://localhost:3000/submit-patient" method="POST">
+                <div class="form-group">
+                    <label for="patient-name">Patient Name</label>
+                    <input type="text" name="patient_name" id="patient-name" placeholder="Enter patient name">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" name="age" id="age" placeholder="Enter patient age">
+                </div>
+                <div class="form-group">
+                    <label for="condition">Condition</label>
+                    <input type="text" id="condition" name="medical_condition" placeholder="Enter patient condition">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <input type="text" name="gender" id="gender" placeholder="Enter gender">
+                </div>
+                <div class="form-group">
+                    <label for="bed-type">Bed Type</label>
+                    <input type="text" name="bed_type" id="bed-type" placeholder="Enter bed type">
+                </div>
+                <button type="submit" class="admit-button">+ Admit Patient</button>
+            </form>
+        </section>
+        <div class="admissions">
+            <h2>Admissions</h2>
+            <div class="patient">
+                <div class="patient-info">
+                    <h3>Sarah Lee</h3>
+                    <p>Admitted to Ward 3</p>
+                </div>
+                <div class="actions">
+                    <button class="action-button">Transfer</button>
+                    <button class="action-button">Discharge</button>
+                </div>
+            </div>
+            <div class="patient">
+                <div class="patient-info">
+                    <h3>David Kim</h3>
+                    <p>Admitted to ICU</p>
+                </div>
+                <div class="actions">
+                    <button class="action-button">Transfer</button>
+                    <button class="action-button">Discharge</button>
+                </div>
+            </div>
+            <div class="patient">
+                <div class="patient-info">
+                    <h3>Emily Chen</h3>
+                    <p>Admitted to Emergency</p>
+                </div>
+                <div class="actions">
+                    <button class="action-button">Transfer</button>
+                    <button class="action-button">Discharge</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="separation"></div>
+    <section class="appointment">
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <h2>MediLab</h2>
+            </div>
+            <div class="quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Queue</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hours">
+                <h4>Hours</h4>
+                <ul>
+                    <li>Monday: 9:00 - 18:00</li>
+                    <li>Tuesday: 9:00 - 18:00</li>
+                    <li>Wednesday: 9:00 - 18:00</li>
+                    <li>Thursday: 9:00 - 18:00</li>
+                    <li>Friday: 9:00 - 18:00</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Phone: 000-000-000</li>
+                    <li>Email: info@email.com</li>
+                    <li>Address: Kalutara South</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <br>
+</body>
+</html>

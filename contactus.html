@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css"> <!-- Ensure this path matches your CSS file -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>MediLab</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Appointment.html">Queue</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Services 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="MedicineManagement.html">Medcine Management</a>
+                        <a href="Patient Admission.html">Patient Admission</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="sign-in"><a href="signIn.html">Sign In</a></button>
+            <button class="topregister"><a href="Register.html">Register</a></button>
+        </div>
+    </header>
+    <br>
+    <main class="contact-page">
+        <section class="contact-header">
+            <h2>Contact Us</h2>
+        </section>
+        <section class="contact-form">
+            <form action="/submit_form" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <br>
+    <div class="separation"></div>
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <h3>MediLab</h3>
+            </div>
+            <div class="quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Queue</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hours">
+                <h4>Hours</h4>
+                <ul>
+                    <li>Monday: 9:00 - 18:00</li>
+                    <li>Tuesday: 9:00 - 18:00</li>
+                    <li>Wednesday: 9:00 - 18:00</li>
+                    <li>Thursday: 9:00 - 18:00</li>
+                    <li>Friday: 9:00 - 18:00</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Phone: 000-000-000</li>
+                    <li>Email: info@email.com</li>
+                    <li>Address: Kalutara South</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

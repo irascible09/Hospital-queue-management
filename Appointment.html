@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediLab Hospital - Appointment</title>
+    <link rel="stylesheet" href="Appointment.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>MediLab</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Appointment.html">Queue</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Services 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="MedicineManagement.html">Medcine Management</a>
+                        <a href="Patient Admission.html">Patient Admission</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="sign-in"><a href="signIn.html">Sign In</a></button>
+            <button class="topregister"><a href="Register.html">Register</a></button>
+        </div>
+    </header>
+    <br>
+    <section class="hero">
+        <div class="hero-text">
+            <h2>We help people book appointments online.</h2>
+            <p>We offer a quick and easy way to book appointments for beds and medicine, ensuring fast access to essential services with real-time availability updates.</p>
+        </div>
+        <div class="hero-image">
+            <img src="image3.svg" alt="">
+            <img src="image4.svg" alt="Laptop graphic">
+        </div>
+    </section>
+    <br>
+        <h2 align="center">Book Your Place In Queue</h2>
+        <form action="http://localhost:3000/submit-appointment" method="POST">
+            <div class="form-group">
+                <input type="text" name="first_name" placeholder="First Name">
+                <input type="text" name="last_name" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email">
+                <input type="text" name="mobile_number" placeholder="Mobile Number">
+            </div> 
+            <div class="form-group">
+                <input type="text" name="nic" placeholder="NIC">
+                <input type="text" name="dob" placeholder="Date of Birth" onfocus="(this.type='date')" onblur="(this.type='text')" />
+            </div>
+            <div class="form-group">
+                <select name="gender">
+                    <option>Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+                <input type="text" name="appointment_date" placeholder="Appointment date" onfocus="(this.type='date')" onblur="(this.type='text')" />
+                <input type="text" name="appointment_time" placeholder="Appointment time" onfocus="(this.type='time')" onblur="(this.type='text')" />
+            </div>
+            <div class="form-group">
+                <select name="department">
+                    <option>Department Name</option>
+                    <option>Cardiology</option>
+                    <option>Neurology</option>
+                    <option>Orthopedics</option>
+                </select>
+                <input type="text" name="doctor_name" placeholder="Doctor Name">
+            </div>
+            <div class="form-group">
+                <input type="text" name="address" placeholder="Address">
+            </div>
+            <button class="register" type="submit">Register</button>
+        </form>
+    </section>
+    <div class="container">
+        <section class="bed-availability">
+            <h2>Bed Availability</h2>
+            <div class="bed-cards">
+                <div class="bed-card">
+                    <h3>ICU Beds</h3>
+                    <p><span>12</span> Available</p>
+                </div>
+                <div class="bed-card">
+                    <h3>General Wards</h3>
+                    <p><span>45</span> Available</p>
+                </div>
+                <div class="bed-card">
+                    <h3>Emergency Beds</h3>
+                    <p><span>8</span> Available</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="patient-queue">
+        <h2>Patient Queue</h2>
+        <button class="add-button">+ Add Patient</button>
+        <table>
+            <tr>
+                <th>Patient</th>
+                <th>Appointment Time</th>
+                <th>Triage</th>
+                <th>Priority</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="patient-info">
+                        <div class="patient-icon">👤</div>
+                        <div>
+                            <p>John Doe</p>
+                            <span>ID: 12345</span>
+                        </div>
+                    </div>
+                </td>
+                <td>10:30 AM</td>
+                <td><span class="badge urgent">Urgent</span></td>
+                <td><span class="badge high">High</span></td>
+                <td>
+                    <button class="action-button">📄</button>
+                    <button class="action-button">🗑️</button>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <div class="separation"></div>
+    <section class="appointment">
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <h2>MediLab</h2>
+            </div>
+            <div class="quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Queue</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hours">
+                <h4>Hours</h4>
+                <ul>
+                    <li>Monday: 9:00 - 18:00</li>
+                    <li>Tuesday: 9:00 - 18:00</li>
+                    <li>Wednesday: 9:00 - 18:00</li>
+                    <li>Thursday: 9:00 - 18:00</li>
+                    <li>Friday: 9:00 - 18:00</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Phone: 000-000-000</li>
+                    <li>Email: info@email.com</li>
+                    <li>Address: Kalutara South</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
